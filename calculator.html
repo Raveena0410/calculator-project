@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+        .box{
+        
+        height:570px;
+        margin:10px auto;
+        width:25%;
+        
+        background-color: black;
+    
+    
+        border-radius:10px;
+        box-shadow: 0px 10px 10px 10px pink;
+
+        
+    }
+    .box:hover{
+        transform:scale(1.1);
+        transition:0.1s;
+
+    }
+    .in{
+        display:block;
+        width:95%;
+        height:15%;
+        margin:0px auto;
+        border:none;
+        background-color:black;
+        border:6px solid white;
+        color:white;
+        font-size: 30px;
+    }
+    
+    .size{
+         padding: 20px;
+  font-size: 18px;
+    }
+    .led{
+        display: grid;
+  grid-template-columns: repeat(4, 1fr); 
+  gap: 10px;
+  padding: 10px;
+  margin-top:18px;
+   } 
+   .size:hover {
+  background-color: #ccc;
+  cursor: pointer;
+}
+@media (max-width: 600px) {
+  .box {
+    width: 90%;
+    
+  }
+  .size {
+    font-size: 18px;
+  }
+}
+
+
+
+  
+   
+</style>
+</head>
+<body>
+    <div class="box">
+        <h1 style=" padding:12px;color: aliceblue;">CALCULATOR</h1>
+        <input type="text" class="in" id="val" readonly>
+         
+    
+    <div class="led">
+    <input type="submit" class="size" onclick="f(1)" value="1">
+    <input type="submit" class="size" onclick="f(2)" value="2">
+    <input type="submit" class="size" onclick="f(3)" value="3">
+    <input type="submit" class="size" onclick="f(4)" value="4">
+    
+
+    <input type="submit" class="size" onclick="f(5)" value="5">
+    <input type="submit" class="size" onclick="f(6)" value="6">
+    <input type="submit" class="size" onclick="f(7)" value="7">
+    <input type="submit" class="size" onclick="f(8)" value="8">
+    
+    <input type="submit" class="size" onclick="f(9)" value="9">
+    <input type="submit" class="size" onclick="f(0)" value="0">
+    
+    <input type="submit"  onclick="f('+')" value="+" class="size">
+    
+    <input type="submit"  onclick="f('-')" value="-" class="size">
+
+    <input type="submit"  onclick="f('*')" value="*" class="size">
+    <input type="submit" onclick="f('/')" value="/" class="size">
+    <input type="submit"  onclick="f2()" value="clear" class="size">
+    <input type="submit" id="." onclick="f('.')" value="." style="font-weight: bolder;" class="size">
+    <input type="submit" onclick="f('=')" value="=" class="size">
+
+    
+
+
+
+
+
+    </div>
+
+
+    </div>
+    <script>
+         let  val=""
+        function f(a) {
+  if (a == "=") {
+   try {
+    val= eval(val);
+    document.getElementById("val").value = val;
+   }
+    catch {
+                    document.getElementById("val").value = "Error";
+                    val = "";
+}
+  }
+   
+
+
+   else {
+    val += a;
+    document.getElementById("val").value = val;
+  }
+}
+
+function f2(){
+    val="";
+    document.getElementById('val').value=val;
+}
+</script>
+    
+</body>
+</html>
