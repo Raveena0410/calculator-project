@@ -13,7 +13,7 @@
         .box{
         
         height:570px;
-        margin:10px auto;
+        margin:60px auto;
         width:25%;
         
         background-color: black;
@@ -99,9 +99,11 @@
 
     <input type="submit"  onclick="f('*')" value="*" class="size">
     <input type="submit" onclick="f('/')" value="/" class="size">
-    <input type="submit"  onclick="f2()" value="clear" class="size">
+        <input type="submit" onclick="f1('%')" value="%" class="size">
+
     <input type="submit" id="." onclick="f('.')" value="." style="font-weight: bolder;" class="size">
     <input type="submit" onclick="f('=')" value="=" class="size">
+            <input type="submit"  onclick="f2()" value="clear" class="size">
 
     
 
@@ -134,11 +136,17 @@
     document.getElementById("val").value = val;
   }
 }
+        function f1(a){
+   let input = document.getElementById("val");
+  let num = parseFloat(input.value);
+  input.value = num / 100;
+}
 
 function f2(){
     val="";
     document.getElementById('val').value=val;
 }
+    
 </script>
     
 </body>
